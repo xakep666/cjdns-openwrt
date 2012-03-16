@@ -28,12 +28,13 @@ define Package/cjdns
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
-  TITLE:=Experimental secure, scalable, self configuring routing protocol.
+  TITLE:=Experimental self configuring routing protocol.
   DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +libevent2 +nacl
   MAINTAINER:=cjd -- #cjdns on irc.efnet.org
 endef
 
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
+CMAKE_OPTIONS += -DOPENWRT
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
