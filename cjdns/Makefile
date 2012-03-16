@@ -34,7 +34,7 @@ define Package/cjdns
 endef
 
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
-CMAKE_OPTIONS += -DOPENWRT
+CMAKE_OPTIONS += -DOPENWRT=1
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
