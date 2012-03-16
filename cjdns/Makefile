@@ -37,7 +37,7 @@ TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
 CMAKE_OPTIONS += -DOPENWRT=1
 
 # OpenWRT's NACL is not built position independent.
-NO_PIE=1
+CMAKE_OPTIONS += -DNO_PIE
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
