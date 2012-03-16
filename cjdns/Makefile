@@ -23,17 +23,18 @@ PKG_SOURCE_VERSION:=master
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/relayd
+define Package/cjdns
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
   TITLE:=Experimental secure, scalable, self configuring routing protocol.
   DEPENDS:=+kmod-tun +IPV6 +libnl +libevent2 +nacl
+  MAINTAINER:=cjd -- #cjdns on irc.efnet.org
 endef
 
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
 
-define Package/relayd/install
+define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute $(1)/usr/sbin/cjdroute
 
