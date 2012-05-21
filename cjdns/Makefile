@@ -36,6 +36,9 @@ endef
 TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
 CMAKE_OPTIONS += -DOPENWRT=1
 
+# OpenWRT messes around with the code quite a bit and makes the codestyle validator angry.
+CMAKE_OPTIONS += -DNO_CODESTYLE=1
+
 # OpenWRT's NACL is not built position independent.
 CMAKE_OPTIONS += -DNO_PIE=1
 
