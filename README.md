@@ -1,5 +1,3 @@
-**This is still in development, it almost certainly doesn't work yet.**
-
 This is an OpenWRT feed for the [cjdns] project.
 
 To install cjdns on OpenWRT:
