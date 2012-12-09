@@ -1,3 +1,8 @@
+#Broken:
+This is not expected to work with any reasonably recent version of cjdns
+because there is no automated testing of it. If you would like to help develop
+an automated test kit, please stop by the IRC channel `#cjdns` on efnet.
+
 This is an OpenWRT feed for the [cjdns] project.
 
 To install cjdns on OpenWRT:
