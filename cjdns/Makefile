@@ -45,7 +45,6 @@ CMAKE_OPTIONS += -DWITH_PIE=0
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipkg-install/usr/bin/cjdroute2   $(1)/usr/sbin/cjdroute
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipkg-install/usr/bin/cjdns       $(1)/usr/sbin/cjdns
 
 # TODO: Autostart.
 #	$(INSTALL_DIR) $(1)/etc/cjdns
