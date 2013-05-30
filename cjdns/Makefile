@@ -12,7 +12,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cjdns
-PKG_VERSION:=0.4-SNAPSHOT
+PKG_VERSION:=0.5-SNAPSHOT
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -29,7 +29,7 @@ define Package/cjdns
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
   TITLE:=Experimental self configuring routing protocol.
-  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +libevent2 +nacl
+  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +nacl
   MAINTAINER:=cjd -- #cjdns on irc.efnet.org
 endef
 
@@ -44,7 +44,8 @@ CMAKE_OPTIONS += -DWITH_PIE=0
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute $(1)/usr/sbin/cjdroute
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute2 $(1)/usr/sbin/cjdroute
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdns $(1)/usr/sbin/cjdns
 
 # TODO: Autostart.
 #	$(INSTALL_DIR) $(1)/etc/cjdns
