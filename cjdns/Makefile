@@ -21,6 +21,9 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=master
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
+PKG_BUILD_DEPENDS:=nacl
+#nacl required only for compilation, not required for running on target system
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
@@ -29,7 +32,7 @@ define Package/cjdns
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
   TITLE:=Experimental self configuring routing protocol.
-  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +nacl +libpthread
+  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +libpthread
   MAINTAINER:=cjd -- #cjdns on irc.efnet.org
 endef
 
