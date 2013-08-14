@@ -42,6 +42,9 @@ CMAKE_OPTIONS += -DNO_CODESTYLE=1
 # OpenWRT's NACL is not built position independent.
 CMAKE_OPTIONS += -DWITH_PIE=0
 
+# Need to tell cjdns build process that there exists an nacl on the system.
+CMAKE_OPTIONA += -DHAVE_NACL=1
+
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipkg-install/usr/bin/cjdroute2   $(1)/usr/sbin/cjdroute
