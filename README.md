@@ -1,5 +1,7 @@
 This is an OpenWRT feed for the [cjdns] project.
 
+Русская версия Readme: [README_RU.md](README_RU.md)
+
 ## What is OpenWRT?
 
 OpenWRT is a replacement firmware for home and small office routers that gives great flexibility. It is based on a linux kernel and allows for outside software such as cjdns to run and modify the network stack. We will be using it as a base station to anchor the mesh network we're creating.
