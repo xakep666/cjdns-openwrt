@@ -11,7 +11,7 @@ OpenWRT is a replacement firmware for home and small office routers that gives g
 Before beginning, you need to obtain a clean version of the OpenWRT source code on the computer you will be compiling on.
 
     $ git clone git://git.openwrt.org/openwrt.git
-
+	$ cd openwrt
 OpenWRT has its own package management system within the build tools. Before you build the openwrt firmware you're going to be using, we are going to use this package system to add cjdns to the firmware build process. In the directory where you cloned openwrt there should be a document called "feeds.conf.default." We want to include the default feed lists, so do:
 
     $ cp feeds.conf.default feeds.conf
