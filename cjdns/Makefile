@@ -12,35 +12,33 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cjdns
-PKG_VERSION:=0.5-SNAPSHOT
+PKG_VERSION:=HEAD
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=git://github.com/cjdelisle/cjdns.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=master
+PKG_SOURCE_VERSION:=HEAD
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
-include $(INCLUDE_DIR)/cmake.mk
 
 define Package/cjdns
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=Routing and Redirection
   TITLE:=Experimental self configuring routing protocol.
-  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +nacl
+  DEPENDS:=+kmod-tun +kmod-ipv6 +libnl +libpthread
   MAINTAINER:=cjd -- #cjdns on irc.efnet.org
 endef
 
-TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include
-CMAKE_OPTIONS += -DOPENWRT=1
+define Build/Configure
+	$(CP) plans/mipso32_plan.json $(PKG_BUILD_DIR)/node_build/dependencies/cnacl/node_build/plans
+endef
 
-# OpenWRT messes around with the code quite a bit and makes the codestyle validator angry.
-CMAKE_OPTIONS += -DNO_CODESTYLE=1
-
-# OpenWRT's NACL is not built position independent.
-CMAKE_OPTIONS += -DWITH_PIE=0
+define Build/Compile
+	( cd $(PKG_BUILD_DIR); CROSS_COMPILE=$(TARGET_CROSS) $(PKG_BUILD_DIR)/cross-do )
+endef
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
