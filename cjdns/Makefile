@@ -20,6 +20,8 @@ PKG_SOURCE_URL:=git://github.com/cjdelisle/cjdns.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=HEAD
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DEPENDS:=nodejs
+
 
 include $(INCLUDE_DIR)/package.mk
 
