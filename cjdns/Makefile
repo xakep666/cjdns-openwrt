@@ -42,7 +42,7 @@ endef
 
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute2   $(1)/usr/sbin/cjdroute2
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute   $(1)/usr/sbin/cjdroute
 
 # TODO: Autostart.
 #	$(INSTALL_DIR) $(1)/etc/cjdns
