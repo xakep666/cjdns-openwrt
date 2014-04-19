@@ -35,7 +35,7 @@ define Package/cjdns
 endef
 
 define Build/Configure
-	$(CP) plans/mipso32_plan.json $(PKG_BUILD_DIR)/node_build/dependencies/cnacl/node_build/plans
+	$(CP) plans/* $(PKG_BUILD_DIR)/node_build/dependencies/cnacl/node_build/plans
 endef
 
 define Build/Compile
@@ -45,10 +45,8 @@ endef
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute   $(1)/usr/sbin/cjdroute
-
-# TODO: Autostart.
-#	$(INSTALL_DIR) $(1)/etc/cjdns
-#	$(INSTALL_DATA) $(PKG_SOURCE_SUBDIR)/scripts/cjdns.sh
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/cjdns.init $(1)/etc/init.d/cjdns
 endef
 
 $(eval $(call BuildPackage,cjdns))

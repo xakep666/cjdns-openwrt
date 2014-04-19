@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+#TODO: take peers+other settings from /etc/config/cjdns
+genconfig () {
+[ -e /etc/cjdroute-sample.conf ] || cjdroute --genconf > /etc/cjdroute-sample.conf
+cp -rf /etc/cjdroute-sample.conf /etc/cjdroute.conf
+}
+
+start () {
+service-start cjdroute < /etc/cjdroute.conf
+}
+
+stop () {
+service-stop cjdroute
+}
