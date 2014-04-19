@@ -9,6 +9,7 @@ cp -rf /etc/cjdroute-sample.conf /etc/cjdroute.conf
 }
 
 start () {
+genconfig
 service-start cjdroute < /etc/cjdroute.conf
 }
 
