@@ -42,6 +42,9 @@ define Build/Compile
 	( cd $(PKG_BUILD_DIR); CROSS_COMPILE=$(TARGET_CROSS) $(PKG_BUILD_DIR)/cross-do )
 endef
 
+# Need to tell cjdns build process that there exists an nacl on the system.
+CMAKE_OPTIONS += -DHAVE_NACL=1
+
 define Package/cjdns/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/cjdroute   $(1)/usr/sbin/cjdroute
